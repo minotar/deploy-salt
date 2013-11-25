@@ -82,6 +82,8 @@ minotar:
   file.managed:
     - source: salt://minotar/ssl/server.key
 
+sh /home/minotar/install.sh:
+  cmd.run
 
 sh /home/minotar/start.sh:
   cron.present:
