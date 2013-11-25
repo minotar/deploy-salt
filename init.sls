@@ -27,6 +27,21 @@ golang:
     - name: golang
     - refresh: True
 
+/etc/pam.d/common-session:
+  file.managed:
+    - source:
+      - salt://minotar/system/common-session
+
+/etc/security/limits.conf:
+  file.managed:
+    - source:
+      - salt://minotar/system/limits.conf
+
+/etc/sysctl.conf:
+  file.managed:
+    - source:
+      - salt://minotar/system/sysctl.conf
+
 minotar:
   user.present:
     - fullname: Minotar
@@ -67,3 +82,7 @@ minotar:
   file.managed:
     - source: salt://minotar/ssl/server.key
 
+
+sh /home/minotar/start.sh:
+  cron.present:
+    - user: minotar
