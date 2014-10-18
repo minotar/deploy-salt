@@ -28,22 +28,22 @@ golang:
 /etc/pam.d/common-session:
   file.managed:
     - source:
-      - salt://minotar/system/common-session
+      - salt://imgd/system/common-session
 
 /etc/security/limits.conf:
   file.managed:
     - source:
-      - salt://minotar/system/limits.conf
+      - salt://imgd/system/limits.conf
 
 /etc/sysctl.conf:
   file.managed:
     - source:
-      - salt://minotar/system/sysctl.conf
+      - salt://imgd/system/sysctl.conf
 
 /etc/init/imgd.conf:
   file.managed:
     - source:
-      - salt://minotar/system/imgd.conf
+      - salt://imgd/system/imgd.conf
 
 minotar:
   user.present:
@@ -53,17 +53,9 @@ minotar:
     - groups:
       - users
 
-/home/minotar/.bashrc:
-  file.managed:
-    - source:
-      - salt://minotar/home/bashrc
-    - user: minotar
-    - group: users
-    - mode: 644
-
 /home/minotar/imgd:
   file.managed:
-    - source: salt://minotar/deploy/imgd
+    - source: salt://imgd/deploy/imgd
     - user: minotar
     - group: users
     - mode: 744
