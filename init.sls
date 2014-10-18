@@ -60,6 +60,5 @@ minotar:
     - group: users
     - mode: 744
 
-imgd:
-  service:
-    - restart
+service imgd restart:
+  cmd.run
