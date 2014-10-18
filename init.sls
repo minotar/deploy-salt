@@ -1,5 +1,3 @@
-include:
-  - minotar.nginx
 
 curl:
   pkg.installed
@@ -62,14 +60,6 @@ minotar:
     - user: minotar
     - group: users
     - mode: 644
-
-/srv/ssl/bundle.crt:
-  file.managed:
-    - source: salt://minotar/ssl/bundle.crt
-
-/srv/ssl/server.key:
-  file.managed:
-    - source: salt://minotar/ssl/server.key
 
 /home/minotar/imgd:
   file.managed:
