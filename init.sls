@@ -71,11 +71,9 @@ minotar:
   file.managed:
     - source: salt://minotar/ssl/server.key
 
-AAAAB3NzaC1yc2EAAAADAQABAAABAQDGEOICtb7UbkTAF9unlMmnOq4jhOKjbQ2gHWtsHjgYFwWHJC7MpGGVyNiEAbGcC541wfMAjUk98AJl0XwovgqbvaCvtr0vsWuI3Lfa0X7AyiovhiN1J5kZVl0/gxh77UgvR0X694T2lXP9TFVTt8lMMizg2corscyDmb3ddNfKwhM4MYv9DTjQSL2WJJV/156FMtO4y5cVlr+z6itcsPdkEzR0FnHrColkIzVP2bNZ95qecWWeOpt/jBd07F3TDh0c2NVbQSSlrJ+dGbIFlWTj61G6TMlrJWJo0ZWbqEsC1mt/ika0yL5NcuYmyOM4OgETfNzajugzuyOz1co8DFf5:
-  ssh_auth:
-    - present
-    - user: minotar
-    - enc: ssh-rsa
+/home/minotar/imgd:
+  file.managed:
+    - source: salt://minotar/deploy/imgd
 
 imgd:
   service:
