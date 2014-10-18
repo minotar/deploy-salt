@@ -74,6 +74,9 @@ minotar:
 /home/minotar/imgd:
   file.managed:
     - source: salt://minotar/deploy/imgd
+    - user: minotar
+    - group: users
+    - mode: 744
 
 imgd:
   service:
