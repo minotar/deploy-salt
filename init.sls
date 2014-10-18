@@ -42,6 +42,11 @@ golang:
     - source:
       - salt://minotar/system/sysctl.conf
 
+/etc/init/imgd.conf:
+  file.managed:
+    - source:
+      - salt://minotar/system/imgd.conf
+
 minotar:
   user.present:
     - fullname: Minotar
@@ -50,25 +55,9 @@ minotar:
     - groups:
       - users
 
-/home/minotar/install.sh:
-  file.managed:
-    - source:
-      - salt://minotar/home/install.sh
-    - user: minotar
-    - group: users
-    - mode: 644
-
-/home/minotar/start.sh:
-  file.managed:
-    - source:
-      - salt://minotar/home/start.sh
-    - user: minotar
-    - group: users
-    - mode: 644
-
 /home/minotar/.bashrc:
   file.managed:
-    - source: 
+    - source:
       - salt://minotar/home/bashrc
     - user: minotar
     - group: users
@@ -82,9 +71,12 @@ minotar:
   file.managed:
     - source: salt://minotar/ssl/server.key
 
-sh /home/minotar/install.sh:
-  cmd.run
-
-sh /home/minotar/start.sh:
-  cron.present:
+AAAAB3NzaC1yc2EAAAADAQABAAABAQDGEOICtb7UbkTAF9unlMmnOq4jhOKjbQ2gHWtsHjgYFwWHJC7MpGGVyNiEAbGcC541wfMAjUk98AJl0XwovgqbvaCvtr0vsWuI3Lfa0X7AyiovhiN1J5kZVl0/gxh77UgvR0X694T2lXP9TFVTt8lMMizg2corscyDmb3ddNfKwhM4MYv9DTjQSL2WJJV/156FMtO4y5cVlr+z6itcsPdkEzR0FnHrColkIzVP2bNZ95qecWWeOpt/jBd07F3TDh0c2NVbQSSlrJ+dGbIFlWTj61G6TMlrJWJo0ZWbqEsC1mt/ika0yL5NcuYmyOM4OgETfNzajugzuyOz1co8DFf5:
+  ssh_auth:
+    - present
     - user: minotar
+    - enc: ssh-rsa
+
+imgd:
+  service:
+    - restart
