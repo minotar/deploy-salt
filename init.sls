@@ -53,6 +53,12 @@ minotar:
     - groups:
       - users
 
+/home/minotar/.bashrc:
+  file.managed:
+    - source: salt://imgd/home/bashrc
+    - user: minotar
+    - group: users
+
 /home/minotar/imgd:
   file.managed:
     - source: salt://imgd/deploy/imgd
