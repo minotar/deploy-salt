@@ -66,5 +66,13 @@ minotar:
     - group: users
     - mode: 744
 
+/home/minotar/config.json:
+  file.managed:
+    - source: salt://imgd/deploy/config.json
+    - user: minotar
+    - group: users
+    - mode: 744
+
+
 service imgd restart:
   cmd.run
